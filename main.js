@@ -155,13 +155,13 @@ function clearTmp() {
   })
 }
 
-function clearSessions('sessions.json') {
+function clearSessions(folder = 'sessions') {
 	let filename = []
 	readdirSync(folder).forEach(file => filename.push(join(folder, file)))
 	return filename.map(file => {
 		let stats = statSync(file)
 		if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 120)) { // 1 hours
-			console.log('Deleted sessions.json', file)
+			console.log('Deleted sessions', file)
 			return unlinkSync(file)
 		}
 		return false
