@@ -11,5 +11,6 @@ handler.help = handler.alias = ['hidetag']
 handler.tags = ['group']
 handler.command = /^(hidetag)$/i
 handler.group = handler.admin = true
+handler.owner = true
 
 export default handler
